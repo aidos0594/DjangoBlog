@@ -1,0 +1,20 @@
+{% extends 'news/base.html' %}
+{% block desc %}{{ new.description }}{% endblock desc %}
+{% block keywords %}{{ new.keywords }}{% endblock keywords %}
+{% block title %} {{ new.title }} {% endblock title %}
+
+{% block content %}
+
+    <h1>{{ new.title }}</h1>
+    <p>{{ new.text }}</p>
+    <hr>
+    <p>Категория: {{ new.category }}</p>
+    <p>теги: {% for tag in new.tegs.all %}
+    {{ tag.title }},
+    {% endfor %}
+    </p>
+
+    <p>Автор: {{ new.user }} - {{ new.created }}</p>
+
+{% endblock content %}
+

@@ -14,7 +14,27 @@
     {% endfor %}
     </p>
 
-    <p>Автор: {{ new.user }} - {{ new.created }}</p>
+    <p>Автор: {{ new.user }} - {{ new.created }}</p> <hr>
+    <h2>Комментарии:</h2>
+    {% for comment in comments %}
+      <p>Пользователь: {{ comment.user }}</p>
+      <p>{{ comment.text }}</p>
+        <p>Добавлен: {{ comment.created }}</p>
+        <br>
+    {% endfor %}
+
+{#     {% for comment in new.comments_set.all %}#}
+{#      <p>Пользователь: {{ comment.user }}</p>#}
+{#      <p>{{ comment.text }}</p>#}
+{#        <p>Добавлен: {{ comment.created }}</p>#}
+{#        <br>#}
+{#    {% endfor %}#}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Отправить</button>
+    </form>
 
 {% endblock content %}
 

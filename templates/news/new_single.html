@@ -30,11 +30,15 @@
 {#        <br>#}
 {#    {% endfor %}#}
 
+    {% if user.is_active %}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
     <button type="submit">Отправить</button>
     </form>
+        {% else %}
+        <h4>Что бы оставить комментарий авторизуйтесь</h4>
+    {% endif %}
 
 {% endblock content %}
 
